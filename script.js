@@ -5,23 +5,15 @@ function getWeather() {
     const apiKey = '79c41404582859204e6e0ca5f7819f0a'; // Your updated API key
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-    console.log(`Fetching weather data for city: ${city}`);
-    console.log(`URL: ${url}`);
-
     fetch(url)
         .then(response => {
-            console.log(response);
             if (!response.ok) {
                 throw new Error('City not found');
             }
             return response.json();
         })
-        .then(data => {
-            console.log(data);
-            displayWeather(data);
-        })
+        .then(data => displayWeather(data))
         .catch(error => {
-            console.error('Error fetching data:', error);
             const weatherContainer = document.getElementById('weatherContainer');
             weatherContainer.innerHTML = `<p>Error: ${error.message}</p>`;
         });
