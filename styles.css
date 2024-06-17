@@ -1,7 +1,9 @@
+/* General styles */
 body {
     background-image: url("DSC_1051.JPG");
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed; /* Make sure the background covers the entire screen */
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
@@ -16,7 +18,7 @@ header {
 .site-title {
     font-size: 36px;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgb(0 0 0);    /* Adds a shadow effect to the text */
+    text-shadow: 2px 2px 4px rgb(0 0 0); /* Adds a shadow effect to the text */
 }
 
 .search-container {
@@ -29,7 +31,7 @@ input[type="text"] {
     padding: 10px;
     margin-right: 10px;
     border: none;
-    border-radius: 4px;
+    border-radius: 100px; /* Increased border-radius for a round shape */
     width: 200px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow to the input box */
 }
@@ -37,11 +39,15 @@ input[type="text"] {
 button {
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 100px;
     background-color: #333;
     color: white;
     cursor: pointer;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow to the button */
+    /* Center the icon vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button:hover {
@@ -49,18 +55,40 @@ button:hover {
 }
 
 #weatherContainer {
-    margin-top: 20px;
+    margin: 20px auto; /* Center the container horizontally */
     background-color: #7023236e;
-    border-radius: 4px;
+    border-radius: 25px; /* Increased border-radius for a curved rectangle */
     padding: 20px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     display: inline-block;
-    text-align: left;
+    text-align: center;
     color: white; /* Set font color to white */
+    max-width: 50%; /* Ensure it doesn't exceed screen width on mobile */
 }
 
 #weatherContainer img {
     max-width: 100%;
     height: auto;
     margin-bottom: 20px;
+}
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 600px) {
+    .site-title {
+        font-size: 28px;
+    }
+
+    input[type="text"] {
+        width: 150px;
+        padding: 8px;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+
+    #weatherContainer {
+        padding: 15px;
+        margin-top: 15px;
+    }
 }
